@@ -7,6 +7,7 @@
 @section('content')
 @if (session('message'))
 <div class="todo__alert">
+    @if (session('message'))
     <div class="todo__alert--success">
         {{ session('message') }}
     </div>
@@ -59,6 +60,7 @@
                         @csrf
                         @method('DELETE')
                         <div class="delete-form__button">
+                            <input type="hidden" name="id" value="{{ $todo['id'] }}">
                             <button class="delete-form__button-submit" type="submit">削除</button>
                         </div>
                     </form>
