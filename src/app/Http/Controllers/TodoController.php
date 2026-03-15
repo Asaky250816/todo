@@ -2,46 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TodoRequest;
 use App\Models\Todo;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 
 class TodoController extends Controller
 {
-    public function index(): View
+    public function index()
     {
-        $todos = Todo::orderBy('id')->get();
-
-        return view('index', compact('todos'));
+        $todos = Todo::all();
+        return view('index' , compact('todos'));
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(TodoRequest $request)
     {
-        $validated = $request->validate([
-            'content' => ['required', 'string', 'max:20'],
-        ]);
-
-        Todo::create($validated);
+        $todo = $request->only(['content']);
+        Todo::create($todo);
 
         return redirect('/')->with('message', 'Todoを作成しました。');
     }
 
-    public function update(Request $request, Todo $todo): RedirectResponse
+    public function update(TodoRequest $request)
     {
-        $validated = $request->validate([
-            'content' => ['required', 'string', 'max:20'],
-        ]);
-
-        $todo->update($validated);
+        $todo = $request->only(['content']);
+        Todo::find($request->id)->update($todo);
 
         return redirect('/')->with('message', 'Todoを更新しました。');
     }
 
-    public function destroy(Todo $todo): RedirectResponse
+    public function destroy(Request $request)
     {
-        $todo->delete();
-
+        Todo::find($request->id)->delete();
         return redirect('/')->with('message', 'Todoを削除しました。');
     }
 }
