@@ -1,20 +1,12 @@
 .todo__alert--success {
-    margin: 0 auto 24px;
-    width: 70%;
     padding: 10px 30px;
-    border: 1px solid #badbcc;
-    border-radius: 8px;
     border-color: #badbcc;
     background-color: #d1e7dd;
     color: #0f5132;
 }
 
 .todo__alert--danger {
-    margin: 0 auto 24px;
-    width: 70%;
-    padding: 10px 0px;
-    border: 1px solid #f5c2c7;
-    border-radius: 8px;
+    padding: 10px 0;
     border-color: #f5c2c7;
     background-color: #f8d7da;
     color: #842029;
@@ -26,44 +18,58 @@
 
 .todo__content {
     margin: 0 auto;
-    padding: 60px 15px;
+    padding: 30px 15px;
     max-width: 1230px;
 }
 
-.create-form {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
+.section__title {
     margin: 0 auto;
     width: 70%;
-    text-align: center;
 }
 
-.create-form__item {
+.create-form,.search-form {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    width: 70%;
+    text-align: center;
+    }
+
+.create-form__item,.search-form__item {
+    display: flex;
     width: 70%;
 }
 
-.create-form__item input {
+.create-form__item-input,.search-form__item-input {
+    margin-right: 10px;
     padding: 10px;
-    width: 100%;
+    width: 70%;
     height: 40px;
     border: 1px solid #ddd;
-    border-radius: 6px;
-    background: #fff;
-    box-sizing: border-box;
+    border-radius: 3px;
 }
 
-.create-form__button {
+.create-form__item-select,.search-form__item-select {
+    padding: 10px;
+    width: 30%;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    appearance: none;
+}
+
+.create-form__button,.search-form__button {
     width: 20%;
 }
 
-.create-form__button-submit {
+.create-form__button-submit,.search-form__button-submit {
     padding: 10px;
     width: 100%;
     height: 40px;
     border: none;
-    border-radius: 6px;
-    background-color: #000;
+    border-radius: 3px;
+    background: #000;
     color: #fff;
     cursor: pointer;
 }
@@ -71,16 +77,15 @@
 .todo-table {
     margin: 30px auto;
     width: 70%;
-    text-align: left;
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-    overflow: hidden;
+    text-align: center;
 }
 
 .todo-table__inner {
     width: 100%;
-    border-collapse: collapse;
+}
+
+.todo-table__row {
+    border-bottom: 1px solid #ddd;
 }
 
 .todo-table__header {
@@ -88,42 +93,38 @@
     width: 20%;
     text-align: left;
     font-weight: bold;
-    background: #f0f3f7;
-    border-bottom: 1px solid #e5e7eb;
 }
 
-.todo-table__row {
-    border-bottom: 1px solid #e5e7eb;
+.todo-table__header-span {
+    margin-right: 40%;
 }
+
 
 .todo-table__item:first-of-type {
     padding: 12px;
     width: 90%;
 }
 
-.todo-table__item {
-    padding: 12px;
-}
-
 .update-form {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
 }
 
 .update-form__item {
-    width: 80%;
+    width: 40%;
     line-height: 50%;
 }
 
-.update-form__item input {
-    padding: 8px 12px;
+.update-form__item-input {
     width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 6px;
     outline: none;
-    box-sizing: border-box;
+    border: none;
+}
+
+.update-form__item-p {
+    text-align: left;
+    font-size: 13px;
 }
 
 .update-form__button {
@@ -132,13 +133,13 @@
 
 .update-form__button-submit {
     padding: 5px;
-                          width: 100%;
-                          border: none;
-                          border-radius: 3px;
-                          background: #0000ff;
-                          color: #fff;
-                          cursor: pointer;
-                      }
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+    background: #0000ff;
+    color: #fff;
+    cursor: pointer;
+}
 
 .delete-form__button {
     width: 50px;
@@ -148,8 +149,8 @@
     padding: 5px;
     width: 100%;
     border: none;
-    border-radius: 6px;
-    background: #dc2626;
+    border-radius: 3px;
+    background: #ff0000;
     color: #fff;
     cursor: pointer;
 }

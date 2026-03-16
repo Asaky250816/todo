@@ -17,6 +17,12 @@ body {
     max-width: 1230px;
 }
 
+.header-utilities {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .header__logo {
     color: #fff;
     text-decoration: none;
