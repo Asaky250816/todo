@@ -132,13 +132,13 @@
 
 .update-form__button-submit {
     padding: 5px;
-    width: 100%;
-    border: none;
-    border-radius: 6px;
-    background: #2563eb;
-    color: #fff;
-    cursor: pointer;
-}
+                          width: 100%;
+                          border: none;
+                          border-radius: 3px;
+                          background: #0000ff;
+                          color: #fff;
+                          cursor: pointer;
+                      }
 
 .delete-form__button {
     width: 50px;
