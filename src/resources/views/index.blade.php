@@ -24,13 +24,13 @@
 </div>
 
 <div class="todo__content">
-    <div class="section-title">
+    <div class="section__title">
         <h2>新規作成</h2>
     </div>
     <form class="create-form" action="/todos" method="post">
         @csrf
         <div class="create-form__item">
-            <input class="create-form__item-input" type="text" name="content" value="{{ old('content') }}">
+            <input class="create-form__item-input" type="text" name="content" value="{{ old('content') }}"/>
             <select class="create-form__item-select">
                 <option value="">カテゴリ</option>
             </select>
@@ -59,7 +59,6 @@
             <tr class="todo-table__row">
                 <th class="todo-table__header">Todo</th>
                 <th class="todo-table__header">
-                    <span class="todo-table__header-span">Todo</span>
                     <span class="todo-table__header-span">カテゴリ</span>
                 </th>
             </tr>
@@ -67,11 +66,11 @@
             <tr class="todo-table__row">
                 <td class="todo-table__item">
                     <form class="update-form" action="/todos/update" method="post">
-                        @csrf
                         @method('PATCH')
+                        @csrf
                         <div class="update-form__item">
-                            <input class="update-form__item-input" type="text" name="content" value="{{ $todo->content }}">
-                            <input type="hidden" name="id" value="{{ $todo->id }}">
+                            <input class="update-form__item-input" type="text" name="content" value="{{ $todo->content }}"/>
+                            <input type="hidden" name="id" value="{{ $todo->id }}"/>
                         </div>
                         <div class="update-form__item">
                             <p class="update-form__item-p">Category 1</p>
@@ -83,10 +82,10 @@
                 </td>
                 <td class="todo-table__item">
                     <form class="delete-form" action="/todos/delete" method="post">
-                        @csrf
                         @method('DELETE')
+                        @csrf
+
                         <div class="delete-form__button">
-                            <input type="hidden" name="id" value="{{ $todo['id'] }}">
                             <button class="delete-form__button-submit" type="submit">削除</button>
                         </div>
                     </form>

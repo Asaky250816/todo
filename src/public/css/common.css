@@ -1,14 +1,5 @@
-.body,
-body {
-    margin: 0;
-    background: #f5f7fa;
-    color: #333;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 .header {
     background: #000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 .header__inner {
@@ -30,6 +21,7 @@ body {
     font-size: 24px;
 }
 
-main {
-    padding-bottom: 40px;
+.header-nav__link {
+    color: #fff;
+    text-decoration: none;
 }
