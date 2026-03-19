@@ -7,9 +7,7 @@
 @section('content')
 <div class="todo__alert">
     @if (session('message'))
-    <div class="todo__alert--success">
-        {{ session('message') }}
-    </div>
+    <div class="todo__alert--success">{{ session('message') }}</div>
     @endif
 
     @if ($errors->any())
@@ -30,8 +28,12 @@
     <form class="create-form" action="/todos" method="post">
         @csrf
         <div class="create-form__item">
-            <input class="create-form__item-input" type="text" name="content" value="{{ old('content') }}"/>
-            <select class="create-form__item-select">
+            <input class="create-form__item-input"
+            type="text"
+            name="content"
+            value="{{ old('content') }}"
+            />
+            <select class="create-form__item-select" name="category_id">
                 <option value="">カテゴリ</option>
             </select>
         </div>
@@ -57,8 +59,8 @@
     <div class="todo-table">
         <table class="todo-table__inner">
             <tr class="todo-table__row">
-                <th class="todo-table__header">Todo</th>
                 <th class="todo-table__header">
+                    <span class="todo-table__header-span">Todo</span>
                     <span class="todo-table__header-span">カテゴリ</span>
                 </th>
             </tr>
@@ -69,8 +71,12 @@
                         @method('PATCH')
                         @csrf
                         <div class="update-form__item">
-                            <input class="update-form__item-input" type="text" name="content" value="{{ $todo->content }}"/>
-                            <input type="hidden" name="id" value="{{ $todo->id }}"/>
+                            <input class="update-form__item-input"
+                            type="text"
+                            name="content"
+                            value="{{ $todo->content }}"
+                            />
+                            <input type="hidden" name="id" value="{{ $todo['id'] }}"/>
                         </div>
                         <div class="update-form__item">
                             <p class="update-form__item-p">Category 1</p>

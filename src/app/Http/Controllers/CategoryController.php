@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryRequest;
 use Illuminate\Http\Request;
 use App\Models\Category;
+
 
 class CategoryController extends Controller
 {
@@ -12,5 +14,27 @@ class CategoryController extends Controller
         $categories = Category::all();
 
         return view('category', compact('categories'));
+    }
+
+    public function store(CategoryRequest $request)
+    {
+        $category = $request->only(['name']);
+        Category::create($category);
+
+        return redirect('/categories')->with('message', 'カテゴリーを作成しました。');
+    }
+
+    public function update(CategoryRequest $request)
+    {
+        $category = $request->only(['name']);
+        Category::find($request->id)->update($category);
+
+        return redirect('/categories')->with('message', 'カテゴリーを更新しました。');
+    }
+
+    public function destroy(Request $request)
+    {
+        Category::find($request->id)->delete();
+        return redirect('/categories')->with('message', 'カテゴリーを削除しました。');
     }
 }
